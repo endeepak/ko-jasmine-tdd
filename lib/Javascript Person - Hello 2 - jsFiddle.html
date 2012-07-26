@@ -1,0 +1,779 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <meta name="description" edit="mootools shell, easy test you snippets before implementing"/>
+  <meta name="keywords" edit="mootools,javascript,javascript framework,shell,test"/>
+  <meta name="robots" edit="all"/>
+  
+
+  <title>Javascript Person - Hello 2 - jsFiddle</title>
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata'
+      rel='stylesheet' type='text/css'>
+  <meta name="google-site-verification" content="9m4aWTtDLfQ1kJNm3NtNsCrtpsOx_QoOPQRJ7jAwup8" />
+  <meta name="author" edit="Piotr Zalewa"/>
+  <meta name='copyright' content='share alike'/>
+  <script type="text/javascript" src="/js/jslint.min.js"></script>
+  <script type="text/javascript" src="/js/lib/mootools-1.2.5-core-json-fixed.js"></script><script type="text/javascript" src="/js/lib/mootools-1.2.5-more-main.js"></script><script type="text/javascript" src="/codemirror/js/codemirror.js"></script><script type="text/javascript" src="/codemirror/js/mirrorframe.js"></script><script type="text/javascript" src="/js/Sidebar.js"></script><script type="text/javascript" src="/js/LayoutCM.js"></script><script type="text/javascript" src="/js/Actions.js"></script><script type="text/javascript" src="/js/Resources.js"></script><script type="text/javascript" src="/js/EditorCM.js"></script><script type="text/javascript" src="/js/Settings.js"></script>
+  <script src="/mooshellmedia/js/clientcide.2.2.0.js" type="text/javascript" charset="utf-8"></script>
+
+
+<script type="text/javascript" charset="utf-8">
+	
+	// switch this to false once on production
+	var disqus_developer = false;
+	
+	// uniqie shell ID
+	var disqus_identifier = '6FdSS';
+	
+	// title
+	var disqus_title = 'Javascript%20Person%20-%20Hello%202';
+
+</script>
+
+<!--meta name="viewport" content="width=device-width, maximum-scale=0.5" /-->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+
+  
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/tricks.css"/>
+  <link rel="icon" href="/favicon.png"/>
+  <!--[if lte IE 6]>
+    <link rel="stylesheet" type="text/css" href="/mooshellmedia/css/ie-hacks.css"/>
+  <![endif]-->
+
+  <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/light.css"/>
+  <script type='text/javascript'>
+    var csspath = "/css/",
+      jspath = "/js/",
+      imgpath = "/img/",
+      mediapath = "/mooshellmedia/",
+      codemirrorpath = "/codemirror/",
+      panel_html = 'html',
+      panel_css = 'css',
+      panel_js = 'javascript',
+      makefavouritepath = "/_make_favourite/",
+      example_server = "http://jsfiddle.net",
+      username = "",
+      mooshell,
+      preload_resources;
+    
+    Layout.skin = "";// "light"
+    window.addEvent('domready', function() {
+      if (panel_js != 'javascript' && $('jslint')) {
+        $('jslint').getParent('li').hide();
+      }
+      $extend(Layout, new Events());
+      mooshell = new MooShellActions({
+        example_id: '7436223',
+        exampleURL: "http://jsfiddle.net/endeepak/6FdSS/",
+        exampleSaveUrl: '/_save/',
+        loadDependenciesURL: '/_get_dependencies/{lib_id}/',
+        loadLibraryVersionsURL: '/_get_library_versions/{group_id}/'
+      });
+      new MooShellEditor.JS($('id_code_js'), {language: panel_js}); // add user defined parameters
+      new MooShellEditor.HTML($('id_code_html'), {language: panel_html}); // add user defined parameters
+      new MooShellEditor.CSS($('id_code_css'), {language: panel_css}); // add user defined parameters
+      Layout.render();
+      
+    });
+    window.addEvent('load', function() {
+      
+    });
+    
+  </script>
+  
+</head><body>
+<form method='post' id='show-result' target='result' action='http://fiddle.jshell.net/_display/' >
+    
+    <div id='header'>
+      <div id='branding'>
+        <p id='name'><a href='/' id='home'>jsFiddle (alpha)</a></p>
+      </div>
+      <div id="actions">
+	<ul class="actionCont collapsed" id="toggleSidebarUl">
+		<li class="actionItem"><a class="aiButton" id="toggleSidebar" title="Toggle sidebar" href="#toggle-sidebar"><span>Hide sidebar</span></a></li>
+    </ul>
+	<ul class="actionCont collapsed">
+		<li class="actionItem"><a class="aiButton" id="run" title="Run (Control + Return)" href="#run"><span>Run</span></a></li>
+        
+	</ul>
+
+	<ul class="actionCont collapsed">
+		
+			<li class="actionItem"><a class="aiButton" id="update" title="Update (Control + s)" href="#update"><span>Update</span></a></li>
+			<li class="actionItem"><a class="aiButton" id="savenew" title="Fork into a new Fiddle" href="#fork"><span>Fork</span></a></li>
+		
+		<li class="actionItem"><a class="aiButton" id="clean" title="Reset all fields" href="#clear"><span>Reset</span></a></li>
+			
+	</ul>
+	
+	<ul class="actionCont collapsed">
+		<li class="actionItem"><a class="aiButton" id="tidy" title="Re-indent messy code" href="#tidy"><span>TidyUp</span></a></li>
+		<li class="actionItem"><a class="aiButton" id="jslint" title="Run jsLint on the code" href="#jslint"><span>JSLint</span></a></li>
+        <li class="actionItem"><a class="aiButton" id="showjscode" title="Show JavaScript code" href="#showjs"><span>Show JS</span></a></li>
+	</ul>
+
+	
+		
+	<ul class="actionCont dropdown">
+		<li class="actionItem">
+			<a class="aiButton" id="share" title="Share this Fiddle" href="#share"><span>Share</span></a>
+			<div class="dropdownCont">
+				<div class="dcWrapper">
+					
+					<div id="share_links_dropdown">
+						<p>
+							<label for="share_link_dropdown">Share link</label>
+							<input id="share_link_dropdown" type="text" class="share" value="http://jsfiddle.net/endeepak/6FdSS/" />
+						</p>
+						<p>
+							<label for="share_result_dropdown">Share full screen result</label>
+							<input id="share_result_dropdown" type="text" class="share" value="http://jsfiddle.net/endeepak/6FdSS/embedded/result/" />
+						</p>
+						<p>
+							<label for="share_embedded_dropdown">Embed on your page</label>
+							<input id="share_embedded_dropdown" type="text" class="share" value='<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/endeepak/6FdSS/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>' />
+						</p>
+					</div>
+					
+					<ul id="share-social">
+						<li class="ssItem twitter"><a href="http://twitter.com/home?status=You should check this out! - Javascript%20Person%20-%20Hello%202 - http://jsfiddle.net/endeepak/6FdSS/" title="Click to send this page to Twitter!" target="_blank">Share on Twitter</a></li>
+						<li class="ssItem facebook"><a href="javascript:var%20d=document,f='http://www.facebook.com/share',l=d.location,e=encodeURIComponent,p='.php?src=bm&amp;v=4&amp;i=1244125276&amp;u='+e(l.href)+'&amp;t='+e(d.title);1;try%7Bif%20(!/%5E(.*%5C.)?facebook%5C.%5B%5E.%5D*$/.test(l.host))throw(0);share_internal_bookmarklet(p)%7Dcatch(z)%20%7Ba=function()%20%7Bif%20(!window.open(f+'r'+p,'sharer','toolbar=0,status=0,resizable=1,width=626,height=436'))l.href=f+p%7D;if%20(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%7Ba()%7D%7Dvoid(0)" title="Post to Facebook">Post to Facebook</a></li>
+					</ul>
+				</div>
+			</div>
+		</li>
+	</ul>
+	
+	
+<ul class="actionCont right">
+	<li class="actionItem noIcon"><a class="aiButton" id="login" title="Login" href="/user/login/"><span>Login/Sign up</span></a></li>
+</ul>
+
+
+</div>
+
+
+    </div>
+    <div id='sidebar'>
+      
+
+<div id="info">
+  Please read the <a href="http://doc.jsfiddle.net/" target="_new">documentation</a>.<br/>
+  For updates please follow <a href="http://blog.jsfiddle.net/">our blog</a>, 
+  <a href="http://twitter.com/js_fiddle/" target="_new">tweets</a>
+  or <a href="http://www.facebook.com/pages/jsFiddle/183790024998" target="_new">become a fan</a>.
+  <a id="info-close" title="Close" href="#">Close</a>
+</div>
+
+<script type="text/javascript">
+  var DP;
+
+  window.addEvent('domready', function(){
+    var infoBox = $('info'),
+      closeBox = $('info-close');
+    
+    if (infoBox) {
+      if (!Cookie.read('infoBoxStatus')){
+        infoBox.setStyle('display', 'block');
+      }
+      
+      closeBox.addEvent('click', function(e){
+        e.stop();
+        
+        Cookie.write('infoBoxStatus', 'hide', {
+          domain: 'jsfiddle.net',
+          duration: '5'
+        });
+        infoBox.dissolve();
+      });
+      
+    }
+      DP = new Dropdown();
+  });
+</script>
+
+<h3 class="toggler" id="settings_toggler">Choose Framework</h3>
+<div class="element" id="shell_settings">
+  <div class="elementBody">
+    <div class="ebCont">
+      <select name="js_wrap" id="js_wrap">
+        <option value='h'>no wrap (head)</option>
+        <option value='b'>no wrap (body)</option>
+        <option value="d">onDomReady</option>
+        <option value="l" selected="1">onLoad</option>
+      </select>
+
+      
+        
+          
+<select name='js_lib' id='js_lib'>
+	
+		<optgroup label="Mootools">
+			
+				<option value="96" >Mootools 1.4.5 (compat)</option>
+			
+				<option value="95" >Mootools 1.4.5</option>
+			
+				<option value="63" >Mootools 1.3.2 (compat)</option>
+			
+				<option value="62" >Mootools 1.3.2</option>
+			
+				<option value="37" >Mootools 1.2.5</option>
+			
+				<option value="1" >Mootools 1.1.2</option>
+			
+				<option value="59" >Mootools (edge)</option>
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+		</optgroup>
+	
+		<optgroup label="jQuery">
+			
+				<option value="101" selected="selected">jQuery 1.7.2</option>
+			
+				<option value="83" >jQuery 1.7.1</option>
+			
+				<option value="75" >jQuery 1.6.4</option>
+			
+				<option value="60" >jQuery 1.5.2</option>
+			
+				<option value="49" >jQuery 1.4.4</option>
+			
+				<option value="7" >jQuery 1.3.2</option>
+			
+				<option value="6" >jQuery 1.2.6</option>
+			
+				<option value="46" >jQuery (edge)</option>
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+		</optgroup>
+	
+		<optgroup label="Prototype">
+			
+				<option value="54" >Prototype 1.7</option>
+			
+				<option value="4" >Prototype 1.6.1.0</option>
+			
+				
+			
+		</optgroup>
+	
+		<optgroup label="YUI">
+			
+				<option value="102" >YUI 3.5.0</option>
+			
+				<option value="74" >YUI 3.4.1 simple</option>
+			
+				<option value="73" >YUI 3.4.1</option>
+			
+				<option value="9" >YUI 2.8.0r4</option>
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+		</optgroup>
+	
+		<optgroup label="Glow">
+			
+				<option value="103" >Glow 1.7.7 (core.debug)</option>
+			
+				
+			
+		</optgroup>
+	
+		<optgroup label="No-Library">
+			
+				<option value="11" >No-Library (pure JS)</option>
+			
+		</optgroup>
+	
+		<optgroup label="Dojo">
+			
+				<option value="94" >Dojo 1.7.2</option>
+			
+				<option value="86" >Dojo 1.7.1</option>
+			
+				<option value="61" >Dojo 1.6</option>
+			
+				<option value="34" >Dojo 1.5</option>
+			
+				<option value="13" >Dojo 1.4</option>
+			
+				<option value="12" >Dojo 1.3</option>
+			
+				<option value="87" >Dojo (nightly)</option>
+			
+				
+			
+				
+			
+		</optgroup>
+	
+		<optgroup label="Processing.js">
+			
+				<option value="81" >Processing.js 1.3.6</option>
+			
+				<option value="67" >Processing.js 1.2.3</option>
+			
+				<option value="50" >Processing.js 1.0.0</option>
+			
+				
+			
+				
+			
+				
+			
+		</optgroup>
+	
+		<optgroup label="ExtJS">
+			
+				<option value="80" >ExtJS 4.1.1</option>
+			
+				<option value="107" >ExtJS 4.1.0</option>
+			
+				<option value="109" >ExtJS 3.4.0</option>
+			
+				<option value="23" >ExtJS 3.1.0</option>
+			
+				<option value="24" >ExtJS 3.0.0</option>
+			
+				
+			
+		</optgroup>
+	
+		<optgroup label="Raphael">
+			
+				<option value="76" >Raphael 2.0</option>
+			
+				<option value="36" >Raphael 1.5.2 (min)</option>
+			
+				<option value="30" >Raphael 1.4</option>
+			
+				
+			
+		</optgroup>
+	
+		<optgroup label="RightJS">
+			
+				<option value="45" >RightJS 2.1.1</option>
+			
+		</optgroup>
+	
+		<optgroup label="Three.js">
+			
+				<option value="82" >Three.js (edge)</option>
+			
+		</optgroup>
+	
+		<optgroup label="Zepto">
+			
+				<option value="90" >Zepto 0.8</option>
+			
+		</optgroup>
+	
+		<optgroup label="Enyo">
+			
+				<option value="91" >Enyo 2.0</option>
+			
+		</optgroup>
+	
+		<optgroup label="Shipyard">
+			
+				<option value="105" >Shipyard 0.2</option>
+			
+				<option value="99" >Shipyard (nightly)</option>
+			
+				
+			
+		</optgroup>
+	
+		<optgroup label="MooFx">
+			
+				
+			
+		</optgroup>
+	
+		<optgroup label="Knockout.js">
+			
+				<option value="104" >Knockout.js 2.0.0</option>
+			
+		</optgroup>
+	
+		<optgroup label="The X Toolkit">
+			
+				<option value="106" >The X Toolkit edge</option>
+			
+		</optgroup>
+	
+		<optgroup label="AngularJS">
+			
+				<option value="108" >AngularJS 1.0.1</option>
+			
+		</optgroup>
+	
+</select>
+
+<ul id='js_dependency'>
+	
+	<li><input type='checkbox' id='dep_126' name='js_dependency[126]' value="126"/><label for='dep_126'>jQuery UI 1.8.18</label></li>
+
+	<li><input type='checkbox' id='dep_127' name='js_dependency[127]' value="127"/><label for='dep_127'>jQuery Lint (13 June &#39;11)</label></li>
+
+	<li><input type='checkbox' id='dep_128' name='js_dependency[128]' value="128"/><label for='dep_128'>Bootstrap 2.0.2 (js only)</label></li>
+
+	<li><input type='checkbox' id='dep_129' name='js_dependency[129]' value="129"/><label for='dep_129'>jQuery Mobile 1.0.1</label></li>
+
+
+</ul>
+
+        
+      
+
+      
+      <p class="libraryTagAttributes">
+        <label>
+            Library tag attributes <a target="_new" href="http://doc.jsfiddle.net/basic/introduction.html#choose-framework">(?)</a>
+        </label>
+        <input id="id_js_lib_option" type="text" name="js_lib_option" maxlength="255" />
+      </p>
+      
+
+      <p id="normalize_check">
+          <input checked="checked" type="checkbox" name="normalize_css" id="id_normalize_css" />
+          <label for="id_normalize_css">Normalized CSS</label>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  window.addEvent('load', function() {
+    $('js_lib').addEvent('change', function() {
+      mooshell.loadDependencies(this.value);
+    })
+    if ($('library_group')) $('library_group').addEvent('change', function() {
+      mooshell.loadLibraryVersions(this.value);
+    })
+  });
+</script>
+
+
+<h3 class="toggler" id="pannels_toggler">Panels</h3>
+<div class="element" id="panels_settings">
+  <div class="elementBody">
+    <div class="ebCont">
+      <div class="selectPanel">
+          <select name="panel_html" class='panel_choice' id="panel_html_choice" disabled="disabled" data-panel_id="id_code_html" data-panel="html">
+        
+          <option value="0" selected>HTML</option>
+        
+        </select>
+
+        <select name="panel_css" class='panel_choice' id="panel_css_choice" data-panel_id="id_code_css" data-panel="css">
+          
+          <option value="0" selected>CSS</option>
+          
+          <option value="1">SCSS</option>
+          
+        </select>
+
+        <select name="panel_js" class='panel_choice' id="panel_js_choice" data-panel_id="id_code_js" data-panel="js">
+          
+          <option value="0" selected>JavaScript</option>
+          
+          <option value="1">CoffeeScript</option>
+          
+          <option value="2">JavaScript 1.7</option>
+          
+        </select>
+        <span class="selectFake">Results</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+<h3 class='toggler' id='resources_toggler'>
+	Add Resources
+</h3>
+
+
+<div class='element' id='resources_element'>
+	<div class="elementBody">
+		<div class="ebCont">
+			<div id="external-resources-form">
+				<input id="external_resource" type="text" value="" />
+				<a id="add_external_resource" class="submit" href="#" title="Add resource"><span>Add</span></a>
+			</div>
+			<input type='hidden' value='' id='external_resources_id' name='add_external_resources' />
+			
+			<ul id='external_resources_list'>
+			<script type='text/javascript'>var resources = [];</script>
+			
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script type='text/javascript'>
+	var default_text = 'JavaScript/CSS URL',
+		add_external_resource_url = "/_add_external_resource/";
+
+</script>
+
+      <h3 id='about_toggler' class='toggler'>Info</h3>
+<div class='element'>
+  <div class="elementBody">
+    <div class="ebCont">    
+      <p>
+        <label>
+          Title
+          <input id="id_title" type="text" name="title" value="Javascript Person - Hello 2" maxlength="255" />
+        </label>
+      </p>
+      <p>
+        <label>        
+          Description
+          <textarea id="id_description" rows="10" cols="40" name="description"></textarea>
+        </label>
+      </p>
+      <p>
+        <label>        
+          Body Tag
+          <input id="id_body_tag" type="text" name="body_tag" value="&lt;body&gt;" maxlength="255" />
+        </label>
+      </p>
+      <p>
+      <label>DTD
+        <select name='doctype'>
+          <option id="dtd_XHTML 1.0 Strict" value="1">XHTML 1.0 Strict</option>
+      
+          <option id="dtd_XHTML 1.0 Transitional" value="2">XHTML 1.0 Transitional</option>
+      
+          <option selected id="dtd_HTML 5" value="3">HTML 5</option>
+      
+          <option id="dtd_HTML 4.01 Strict" value="4">HTML 4.01 Strict</option>
+      
+          <option id="dtd_HTML 4.01 Transitional" value="5">HTML 4.01 Transitional</option>
+      
+          <option id="dtd_HTML 4.01 Frameset" value="6">HTML 4.01 Frameset</option>
+      </select></label></p>
+    </div>  
+  </div>  
+</div>
+
+<h3 class='toggler'>Testing Ajax requests</h3>
+<div class='element'>
+  <div class="elementBody">
+    <div class="ebCont">
+    
+      <p>Echo apis are created to simulate Ajax calls:
+        <code>/echo/json/</code> for JSON, 
+        <code>http://jsfiddle.net/echo/jsonp/</code> for JSONP,  
+        <code>/echo/html/</code> for HTML and
+        <code>/echo/xml/</code> for XML.
+      </p>
+      <p>Please <a href="http://doc.jsfiddle.net/use/echo.html" target="_new">read API documentation</a> and follow
+        <a onclick='Layout.sidebar.accordion.display(Layout.sidebar.accordion.togglers.indexOf($("examples_toggler")))' href="#">examples</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+      
+      
+      
+      <h3 class="toggler">Legal stuff and credits</h3>
+<div class="element">
+  <div class="elementBody">
+    <div class="ebCont">    
+      <p>Created and maintained by <a title="Piotr's homepage" href="http://webdev.zalewa.info" target="_credits">Piotr</a> and <a title="Oskar's homepage" href="http://nouincolor.com/" target="_credits">Oskar</a>.</p>
+      <p>Hosted by <a href="https://www.digitalocean.com/" target="_credits">DigitalOcean</a>.</p> 
+      <p>It wouldn't exist without <a href="http://mootools.net" target="_new">MooTools</a> community.</p>
+      <p><strong>License</strong></p>
+      <p>All code belongs to the poster and no license is enforced.</p>
+      <p>We are not responsible or liable for any loss or damage of any kind during the usage of provided code.</p>
+    </div>
+  </div>
+</div>
+
+      
+      <div id="sidebar-bottom">
+        
+        <div id="documentation-info">
+          Read our <a href="http://doc.jsfiddle.net" target="_doc">documentation</a><br/>
+        </div>
+      </div>
+      <a class="keyActions" href="#keyboard">Keyboard shortcuts</a>
+    </div>
+    <div id="content">    
+      
+      
+
+<input type="hidden" name="version" value="0" id="id_version" />
+<input type='hidden' id='id_slug' name='slug' value='6FdSS'/>
+<fieldset class='column left'>
+    <div class='window top' id="panel_html" data-panel_type="html">
+		<textarea id="id_code_html" rows="10" cols="40" name="code_html">&lt;div id=&quot;person&quot;&gt;
+    &lt;div&gt;
+        &lt;label for=&quot;first-name&quot;&gt;First Name&lt;/label&gt;
+        &lt;input id=&quot;first-name&quot;/&gt;
+    &lt;/div&gt;
+
+    &lt;div&gt;
+        &lt;label for=&quot;last-name&quot;&gt;Last Name&lt;/label&gt;
+        &lt;input id=&quot;last-name&quot;/&gt;
+    &lt;/div&gt;
+
+     &lt;div&gt;
+         Hello &lt;span id=&quot;full-name&quot;/&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</textarea>
+		<span class='window_label'>HTML</span>
+	</div>
+	<div class='handler handler_horizontal'></div>
+	<div class='window bottom' id="panel_js" data-panel_type="javascript">
+		<textarea id="id_code_js" rows="10" cols="40" name="code_js">function updateFullName(){
+    var firstName = $(&#39;#first-name&#39;).val();
+    var lastName = $(&#39;#last-name&#39;).val();
+    var fullName = firstName + &#39; &#39; + lastName;
+    $(&#39;#full-name&#39;).html(fullName);
+};
+
+$(&#39;#first-name&#39;).on(&#39;change&#39;, updateFullName);
+$(&#39;#last-name&#39;).on(&#39;change&#39;, updateFullName);</textarea>
+		<span class='window_label'>JavaScript</span>
+	</div>
+	<div class="shim"></div>
+</fieldset>
+
+<div class='handler' id='handler_vertical'></div>
+
+<fieldset class='column right'>
+	<div class='window top' id="panel_css" data-panel_type="css">
+		<textarea id="id_code_css" rows="10" cols="40" name="code_css"></textarea>
+		<span class='window_label'>CSS</span>
+	</div>
+	<div class='handler handler_horizontal'></div>
+	<div id='result' class='window bottom'>
+      <iframe name='result' frameBorder='0' src="http://fiddle.jshell.net/endeepak/6FdSS/show/"></iframe>
+		<span class='window_label'>Result</span>
+	</div>
+	<div class="shim"></div>
+</fieldset>
+  
+    </div>
+  </form>
+  
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker('UA-366077-13');
+        pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  
+  
+
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0012/8885.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+
+</body></html>
